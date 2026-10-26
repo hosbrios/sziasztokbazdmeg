@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>together we are stronger</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+
+    <style>
+        .draggable {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            width: 75px;
+            cursor: grab;
+            touch-action: none;
+        }
+
+        .draggable:active {
+            cursor: grabbing;
+        }
+    </style>
+    </head>
+
+    <body>
+
+        <img src="grass.jpg" class="draggable" alt="Grass">
+
+        <script>
+            interact('.draggable').draggable({
+                listeners: {
+                    move: dragMoveListener,
+                    end(event) {
+                        console.log("Item dropped!");
+                    }
+                }
+            });
+
+            function dragMoveListener(event) {
+                const target = event.target;
+
+                const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+                const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+                target.style.transform = `translate(${x}px, ${y}px)`;
+
+                target.setAttribute('data-x', x);
+                target.setAttribute('data-y', y);
+            }
+        </script>
+
+        <div clas="snowflakes">
+            <div class="snowflake"><img src="snowflake1.png" style="width:5px;" /></div>
+            <div class="snowflake"><img src="snowflake1.png" style="width:5px;" /></div>
+            <div class="snowflake"><img src="snowflake2.png" style="width:5px;" /></div>
+            <div class="snowflake"><img src="snowflake2.png" style="width:5px;" /></div>
+            <div class="snowflake"><img src="snowflake1.png" style="width:5px;" /></div>
+            <div class="snowflake"><img src="snowflake1.png" style="width:5px;" /></div>
+            <div class="snowflake"><img src="snowflake2.png" style="width:5px;" /></div>
+            <div class="snowflake"><img src="snowflake2.png" style="width:5px;" /></div>
+            <div class="snowflake"><img src="snowflake1.png" style="width:5px;" /></div>
+            <div class="snowflake"><img src="snowflake1.png" style="width:5px;" /></div>
+            <div class="snowflake"><img src="snowflake2.png" style="width:5px;" /></div>
+            <div class="snowflake"><img src="snowflake2.png" style="width:5px;" /></div>
+            <div class="snowflake"><img src="snowflake1.png" style="width:5px;" /></div>
+            <div class="snowflake"><img src="snowflake1.png" style="width:5px;" /></div>
+            <div class="snowflake"><img src="snowflake2.png" style="width:5px;" /></div>
+            <div class="snowflake"><img src="snowflake2.png" style="width:5px;" /></div>
+
+        </div>
+
+        <div class="container">
+
+            <header>
+                <h1>hello welcome to my awesomesauce website</h1>
+                <p>heavily under construction</p>
+            </header>
+
+            <nav>
+                <a href="index.html">main</a>
+                <a href="intro.html">intro</a>
+                <a href="gallery.html">gallery</a>
+                <a href="links.html">awesome links</a>
+            </nav>
+
+            <div class="content">
+
+                <main>
+                    <h2>welcomeeee ^^</h2>
+                    <p>i'll mostly be posting updates about my music, art and hobbies, all of which will have their own
+                        cute
+                        little section dedicated for it</p>
+
+                    <section>
+                        <h3>main point of this website</h3>
+                        <p>aside from sharing my work i also wanna create a little community of like-minded people who
+                            don't
+                            fear expressing their opinions and speak up for themselves
+                            <br>
+                            <br>
+                            this world has gone rouge with power hungry people who shouldn't be in a position where they
+                            get
+                            the chance to control everything and we all as a community shall unite and bring changes
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3>other info</h3>
+                        <p>i might create socials for this website where everyone can gather and share their thoughts
+                            and
+                            arts which might be posted here as well</p>
+                    </section>
+                </main>
+
+                <aside>
+                    <h3>music</h3>
+                    <p>
+                    <div class="music-player">
+                        <div class="cd" id="cd">
+                            <div class="cd-center"></div>
+                        </div>
+
+                        <div class="music-info">
+                            <span class="music-title">megalovania</span>
+                            <img src="sans.png" class="sans">
+                            <audio id="audio" src="https://file.garden/atGDxFGSRQzRgr0A/%24megalovaniaa.mp3" preload="metadata"></audio>
+
+                            <div class="volume-control">
+                                <br>
+                                <span>volume</span>
+                                <input type="range" id="volume" min="0" max="100" value="50" aria-label="Volume">
+                            </div>
+
+
+                            <div class="music-controls">
+                                <button id="play">▶ PLAY</button>
+                                <span id="time">0:00</span>
+                            </div>
+
+                            <input type="range" id="progress" value="0" min="0" max="100">
+                        </div>
+                    </div>
+                    </p>
+                </aside>
+
+            </div>
+
+            <footer>
+                <p>spread kindess, spread love, spread peace. together we are stronger</p>
+            </footer>
+
+        </div>
+
+    </body>
+
+</html>
